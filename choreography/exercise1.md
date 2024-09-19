@@ -64,6 +64,7 @@ func TestStatusWorker_New(t *testing.T) {
 
 	// Assert
 	require.NotNil(t, statusWorker)
+	statusMocks.AssertExpectations(t)
 }
 ```
 
@@ -81,7 +82,7 @@ func (s *StatusWorker) Run(ctx context.Context)
 
 This method will be in charge of the following algorithm running in an infinite loop:
 - Listen to events from the status topic
-- In case of a `PokemonEncountered` event, paralyze the Pokémon
+- In case of a `PokemonEncountered` event, `Paralyze` the Pokémon using the `StatusService`
 - Then send an event of type `PokemonParalyzed` to the combat topic
 - And don't forget to listen to the `ctx.Done()` channel to stop the process when context is cancelled
 
@@ -184,5 +185,6 @@ func TestStatusWorker_Run(t *testing.T) {
 	require.Equal(t, rattata, combatEvent.Pokemon)
 	require.Empty(t, combatTopic)
 	require.Empty(t, statusTopic)
+	statusMocks.AssertExpectations(t)
 }
 ```

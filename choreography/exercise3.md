@@ -69,6 +69,7 @@ func TestPokeballWorker_Run(t *testing.T) {
 	require.Equal(t, rattata, captureEvent.Pokemon)
 	require.Empty(t, pokeballTopic)
 	require.Empty(t, captureTopic)
+	pokeballMocks.AssertExpectations(t)
 }
 
 ```
@@ -147,6 +148,9 @@ func TestCatchChoreography(t *testing.T) {
 	require.Equal(t, rattata, captureEvent.Pokemon)
 	require.Empty(t, pokeballTopic)
 	require.Empty(t, captureTopic)
+	statusMocks.AssertExpectations(t)
+	combatMocks.AssertExpectations(t)
+	pokeballMocks.AssertExpectations(t)
 }
 ```
 

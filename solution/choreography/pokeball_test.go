@@ -48,4 +48,5 @@ func TestPokeballWorker_Run(t *testing.T) {
 	require.Equal(t, rattata, captureEvent.Pokemon)
 	require.Empty(t, pokeballTopic)
 	require.Empty(t, captureTopic)
+	pokeballMocks.AssertExpectations(t)
 }

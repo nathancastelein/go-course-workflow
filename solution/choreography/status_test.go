@@ -62,6 +62,7 @@ func TestStatusWorker_RunWithCancel(t *testing.T) {
 
 	// Assert
 	require.True(t, spyContext.doneCalled)
+	statusMocks.AssertExpectations(t)
 }
 
 func TestStatusWorker_Run(t *testing.T) {
@@ -104,4 +105,5 @@ func TestStatusWorker_Run(t *testing.T) {
 	require.Equal(t, rattata, combatEvent.Pokemon)
 	require.Empty(t, combatTopic)
 	require.Empty(t, statusTopic)
+	statusMocks.AssertExpectations(t)
 }

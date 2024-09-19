@@ -68,4 +68,5 @@ func TestCombatWorker_Run(t *testing.T) {
 	require.Equal(t, rattata, pokeballEvent.Pokemon)
 	require.Empty(t, combatTopic)
 	require.Empty(t, pokeballTopic)
+	combatMocks.AssertExpectations(t)
 }

@@ -35,6 +35,7 @@ func (s *StatusWorker) Run(ctx context.Context) {
 			switch event.Type {
 			case PokemonEncountered:
 				slog.Info("paralyze pokemon", slog.Any("pokemon", event.Pokemon))
+
 				err := s.status.Paralyze(event.Pokemon)
 				if err != nil {
 					slog.Error("fail to paralyze pokemon", slog.Any("error", err))
