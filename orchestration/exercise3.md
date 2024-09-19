@@ -134,7 +134,7 @@ func TestCaptureWorker_Definition(t *testing.T) {
 
 	// Assert
 	require.NotNil(workflowDefinition)
-	require.Equal(CapturePokemonWorkflowName, workflowDefinition.Name)
+	require.Equal("CapturePokemon", workflowDefinition.Name)
 	require.Len(workflowDefinition.Steps, 3)
 	require.Equal("Paralyze", workflowDefinition.Steps[0].Name)
 	require.True(strings.Contains(runtime.FuncForPC(reflect.ValueOf(workflowDefinition.Steps[0].Do).Pointer()).Name(), "paralyze"))

@@ -35,5 +35,6 @@ Your code will be able to contact the Temporal server with this address: `localh
 
 If you need to change the UI port, you can use `--ui-port 8233`.
 Same for the Temporal server with `--port 7233`.
+To enable broadcast, you can also use `--ui-ip 0.0.0.0`.
 
 You're now ready to work on your first workflows!

@@ -119,7 +119,7 @@ func TestHelloworldWorker_Definition(t *testing.T) {
 
 	// Assert
 	require.NotNil(workflowDefinition)
-	require.Equal(HelloworldWorkflowName, workflowDefinition.Name)
+	require.Equal("HelloWorld", workflowDefinition.Name)
 	require.Len(workflowDefinition.Steps, 2)
 	require.Equal("Hello Trainer", workflowDefinition.Steps[0].Name)
 	require.True(strings.Contains(runtime.FuncForPC(reflect.ValueOf(workflowDefinition.Steps[0].Do).Pointer()).Name(), "helloTrainer"))

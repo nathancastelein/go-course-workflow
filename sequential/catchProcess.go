@@ -53,6 +53,6 @@ func (g *CatchProcess) Do(ctx context.Context, trainer *pokemon.Trainer, pokemon
 		return err
 	}
 
-	log().Info("pokemon caught")
+	log().Info("pokemon captured")
 	return nil
 }
