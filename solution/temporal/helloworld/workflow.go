@@ -32,6 +32,13 @@ func Helloworld(ctx workflow.Context, trainer *pokemon.Trainer, pokemon *pokemon
 	}
 	finalResult += " " + result
 
+	err = workflow.ExecuteActivity(ctx, SayHelloToProfessorOak).Get(ctx, &result)
+	if err != nil {
+		logger.Error("Activity failed.", "Error", err)
+		return "", err
+	}
+	finalResult += " " + result
+
 	logger.Info("HelloWorld workflow completed.")
 
 	return finalResult, nil

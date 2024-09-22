@@ -18,6 +18,7 @@ func TestWorkflow(t *testing.T) {
 
 	env.OnActivity(SayHelloToTrainer, mock.Anything, blue).Return("Hello Blue!", nil)
 	env.OnActivity(SayHelloToPokemon, mock.Anything, rattata).Return("Hello Rattata!", nil)
+	env.OnActivity(SayHelloToProfessorOak, mock.Anything).Return("Hello Professor Oak!", nil)
 
 	// Act
 	env.ExecuteWorkflow(Helloworld, blue, rattata)
@@ -27,5 +28,5 @@ func TestWorkflow(t *testing.T) {
 	require.NoError(t, env.GetWorkflowError())
 	var result string
 	require.NoError(t, env.GetWorkflowResult(&result))
-	require.Equal(t, "Hello Blue! Hello Rattata!", result)
+	require.Equal(t, "Hello Blue! Hello Rattata! Hello Professor Oak!", result)
 }

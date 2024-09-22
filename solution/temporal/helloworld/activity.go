@@ -3,6 +3,8 @@ package helloworld
 import (
 	"context"
 	"fmt"
+	"io"
+	"net/http"
 
 	"github.com/nathancastelein/go-course-workflows/pokemon"
 	"go.temporal.io/sdk/activity"
@@ -18,4 +20,19 @@ func SayHelloToPokemon(ctx context.Context, pokemon *pokemon.Pokemon) (string, e
 	logger := activity.GetLogger(ctx)
 	logger.Info("SayHelloToPokemon", "name", pokemon.Name)
 	return fmt.Sprintf("Hello %s!", pokemon.Name), nil
+}
+
+func SayHelloToProfessorOak(ctx context.Context) (string, error) {
+	resp, err := http.Get("localhost:8080/hello")
+	if err != nil {
+		return "", err
+	}
+
+	defer resp.Body.Close()
+	result, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return "", err
+	}
+
+	return string(result), nil
 }
