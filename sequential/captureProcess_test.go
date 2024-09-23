@@ -13,7 +13,7 @@ func TestCatchProcess(t *testing.T) {
 	statusMock := new(mocks.StatusService)
 	combatMock := new(mocks.CombatService)
 	pokeballMock := new(mocks.PokeballService)
-	catchProcess := NewCatchProcess(statusMock, combatMock, pokeballMock)
+	catchProcess := NewCaptureProcess(statusMock, combatMock, pokeballMock)
 	trainer := mocks.Blue()
 	pokemon := mocks.Rattata()
 

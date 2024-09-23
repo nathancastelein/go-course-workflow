@@ -11,7 +11,7 @@ import (
 var ()
 
 func main() {
-	catchProcess := sequential.NewCatchProcess(
+	catchProcess := sequential.NewCaptureProcess(
 		pokemon.NewStatusService(),
 		pokemon.NewCombatService(),
 		pokemon.NewPokeballService(),

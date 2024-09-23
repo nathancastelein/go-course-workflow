@@ -7,25 +7,25 @@ import (
 	"github.com/nathancastelein/go-course-workflows/pokemon"
 )
 
-type CatchProcess struct {
+type CaptureProcess struct {
 	status   pokemon.StatusService
 	combat   pokemon.CombatService
 	pokeball pokemon.PokeballService
 }
 
-func NewCatchProcess(
+func NewCaptureProcess(
 	status pokemon.StatusService,
 	combat pokemon.CombatService,
 	pokeball pokemon.PokeballService,
-) *CatchProcess {
-	return &CatchProcess{
+) *CaptureProcess {
+	return &CaptureProcess{
 		status:   status,
 		combat:   combat,
 		pokeball: pokeball,
 	}
 }
 
-func (g *CatchProcess) Do(ctx context.Context, trainer *pokemon.Trainer, pokemon *pokemon.Pokemon) error {
+func (g *CaptureProcess) Do(ctx context.Context, trainer *pokemon.Trainer, pokemon *pokemon.Pokemon) error {
 	log := func() *slog.Logger {
 		return slog.With(
 			slog.Any("trainer", trainer),

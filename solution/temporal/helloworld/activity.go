@@ -23,7 +23,7 @@ func SayHelloToPokemon(ctx context.Context, pokemon *pokemon.Pokemon) (string, e
 }
 
 func SayHelloToProfessorOak(ctx context.Context) (string, error) {
-	resp, err := http.Get("localhost:8080/hello")
+	resp, err := http.Get("http://localhost:8080/hello")
 	if err != nil {
 		return "", err
 	}

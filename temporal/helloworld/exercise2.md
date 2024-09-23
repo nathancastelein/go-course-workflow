@@ -11,7 +11,7 @@ Add a new activity, named `SayHelloToProfessorOak`.
 Here is the code to say hello:
 
 ```go
-    resp, err := http.Get("localhost:8080/hello")
+    resp, err := http.Get("http://localhost:8080/hello")
 	if err != nil {
 		return "", err
 	}
