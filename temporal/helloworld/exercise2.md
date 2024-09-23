@@ -44,3 +44,7 @@ Open Temporal's UI. Open your running workflow. There's an error!
 Run the [API](./cmd/api/main.go) to contact Professor Oak.
 
 Observe your workflow through Temporal's UI. It should resolve by itself!
+
+## Bonus: fix the tests
+
+Fix the workflow test, as it's broken for now!
